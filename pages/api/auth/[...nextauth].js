@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import { SanityAdapter } from 'next-auth-sanity';
 import { sanityClient } from '../../../sanity';
 
-export const authOptions = {
+export default NextAuth({
 	// Configure one or more authentication providers
 	providers: [
 		GoogleProvider({
@@ -17,5 +17,4 @@ export const authOptions = {
 	},
 	secret: process.env.NEXTAUTH_SECRET,
 	adapter: SanityAdapter(sanityClient),
-};
-export default NextAuth(authOptions);
+});
